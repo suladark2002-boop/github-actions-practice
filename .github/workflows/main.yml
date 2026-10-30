@@ -1,0 +1,23 @@
+name: HTML Check
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v4
+
+      - name: Check HTML file
+        run: |
+          test -f index.html
+          echo "HTML file found successfully!"
